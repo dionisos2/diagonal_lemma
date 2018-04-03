@@ -44,7 +44,7 @@ print("phi = " + phi)
 p_phi_meta = 'P('+one_level_down(phi_meta)+')'
 print("p(phi_meta) = " + p_phi_meta)
 
-# We have phi = p(phi_meta) !!
+# We have [phi] == [P([phi])], and so phi == P([phi]) (where [phi] == phi_meta)!!
 print(phi == p_phi_meta)
 
 # Now, we can have some fun :-)
@@ -58,7 +58,7 @@ print("phi = " + phi)
 p = meta_to_object(p_meta)
 
 print("phi == p(phi_meta), and p(phi_meta) print phi_meta, which is the programme of phi ! (so phi print itself):")
-eval(phi) # actually phi is the program of phi, and not phi itself, because I would not be able to print its source code otherwise. (except with the fact that p(phi_meta) == phi, but it is actually something we want to show
+eval(phi) # actually phi is the program of phi, and not phi itself, because I would not be able to print its source code otherwise. (except with the fact that P(phi_meta) == phi, but it is actually something we want to show
 p(phi_meta)
 
 # To be still clearer about the fact that its print itself

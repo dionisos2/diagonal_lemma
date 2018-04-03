@@ -16,11 +16,15 @@ def substitute(p_meta, x_value):
 def diagonal(p_meta):
     return substitute(p_meta, one_level_down('"'+one_level_down(p_meta)+'"'));
 
-
 # find a phi_meta (a expression phi expressed in the meta-language), where phi = p(phi_meta)
 def find_phi_meta(p_meta):
     return 'diagonal(\"'+substitute(p_meta, "diagonal(x)")+'\")'
 
+# these function are only here because of the error in the "one_level_down" function
+def find_phi_meta2(p_meta):
+    return 'diagonal2(\"'+substitute(p_meta, "diagonal2(x)")+'\")'
+def diagonal2(p_meta):
+    return substitute(p_meta, '"'+one_level_down(p_meta)+'"');
 
 # Convert a property expressed in the meta-level, to the object-level
 def meta_to_object(p_meta):
@@ -45,11 +49,12 @@ print(phi == p_phi_meta)
 # Now, we can have some fun :-)
 print("-"*50)
 p_meta = "print(x)"
-phi_meta = find_phi_meta(p_meta)
+phi_meta = find_phi_meta2(p_meta)
 print("phi_meta = " + phi_meta);
 phi = meta_to_object(phi_meta);
 print("phi = " + phi)
 p = meta_to_object(p_meta)
 
-print("phi == p(phi_meta), and p(phi_meta) print phi_meta, which is the programme of phi ! :")
+print("phi == p(phi_meta), and p(phi_meta) print phi_meta, which is the programme of phi ! (so phi print itself):")
+eval(phi) # actually phi is the program of phi, and not phi itself, because I would not be able to print its source code otherwise. (except with the fact that p(phi_meta) == phi, but it is actually something we want to show
 p(phi_meta)

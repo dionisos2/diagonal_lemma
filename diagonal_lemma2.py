@@ -35,6 +35,7 @@ def meta_to_object(p_meta):
         return eval(p_meta);
 
 p_meta = "P(x)"; # A random property
+print("P(x) := "+p_meta)
 phi_meta = find_phi_meta(p_meta)
 print("phi_meta = " + phi_meta);
 phi = meta_to_object(phi_meta)
@@ -49,6 +50,7 @@ print(phi == p_phi_meta)
 # Now, we can have some fun :-)
 print("-"*50)
 p_meta = "print(x)"
+print("P(x) := " + p_meta)
 phi_meta = find_phi_meta2(p_meta)
 print("phi_meta = " + phi_meta);
 phi = meta_to_object(phi_meta);
@@ -58,3 +60,6 @@ p = meta_to_object(p_meta)
 print("phi == p(phi_meta), and p(phi_meta) print phi_meta, which is the programme of phi ! (so phi print itself):")
 eval(phi) # actually phi is the program of phi, and not phi itself, because I would not be able to print its source code otherwise. (except with the fact that p(phi_meta) == phi, but it is actually something we want to show
 p(phi_meta)
+
+# To be still clearer about the fact that its print itself
+print(diagonal2("print(diagonal2(x))"))

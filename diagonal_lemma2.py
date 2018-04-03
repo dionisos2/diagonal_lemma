@@ -2,6 +2,7 @@
 import re
 
 # We have to deal with strings in the different level of language (it is just technical details)
+# Note that there are some problems with this function in the general case, but it was too much trouble to create a correct function
 def one_level_down(p):
     p = p.replace('\\', '\\\\\\\\'); # Yes, I know how you feel here, I feel the same :-D
     p = p.replace('"', '\\"');
@@ -50,4 +51,5 @@ phi = meta_to_object(phi_meta);
 print("phi = " + phi)
 p = meta_to_object(p_meta)
 
-p(phi_meta) # p(phi_meta) = phi so basically, phi print itself !!
+print("phi == p(phi_meta), and p(phi_meta) print phi_meta, which is the programme of phi ! :")
+p(phi_meta)

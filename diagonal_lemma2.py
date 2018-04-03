@@ -16,7 +16,7 @@ def substitute(p_meta, x_value):
 def diagonal(p_meta):
     return substitute(p_meta, one_level_down('"'+one_level_down(p_meta)+'"'));
 
-# find a phi_meta (a expression phi expressed in the meta-language), where phi = p(phi_meta)
+# find a phi_meta (a expression phi expressed in the meta-language), with the property : phi = P(phi_meta) (where p_meta is the program of P)
 def find_phi_meta(p_meta):
     return 'diagonal(\"'+substitute(p_meta, "diagonal(x)")+'\")'
 

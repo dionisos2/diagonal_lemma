@@ -46,6 +46,8 @@ print("-"*50)
 p_meta = "print(x)"
 phi_meta = find_phi_meta(p_meta)
 print("phi_meta = " + phi_meta);
+phi = meta_to_object(phi_meta);
+print("phi = " + phi)
 p = meta_to_object(p_meta)
 
 p(phi_meta) # p(phi_meta) = phi so basically, phi print itself !!
